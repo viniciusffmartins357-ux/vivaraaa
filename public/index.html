@@ -52,6 +52,17 @@
 .product-image-wrap{width:100%;min-width:0;display:flex;justify-content:center;align-items:center}
 .product-image{width:min(88%,180px);max-width:100%;height:auto;aspect-ratio:1;object-fit:contain;image-rendering:auto;mix-blend-mode:multiply;filter:url(#photo-detail)}
 @media(max-width:720px){.product-image{width:min(92%,154px)}}
+
+/* Subtle gallery hover, preserving the supplied photo resolution. */
+.product-card{transition:transform .26s ease}
+.product-image-box{transition:background-color .28s ease,box-shadow .28s ease;isolation:isolate}
+.product-image{transition:transform .35s cubic-bezier(.2,.65,.3,1);transform-origin:center}
+@media(hover:hover) and (pointer:fine){
+.product-card:hover{transform:translateY(-3px)}
+.product-card:hover .product-image-box{background-color:#f1f1f1;box-shadow:0 8px 22px rgba(25,25,25,.075)}
+.product-card:hover .product-image{transform:scale(1.045)}
+}
+@media(prefers-reduced-motion:reduce){.product-card,.product-image-box,.product-image{transition:none!important;transform:none!important}}
 </style>
 </head>
 <body><svg aria-hidden="true" width="0" height="0" style="position:absolute;pointer-events:none"><defs><filter id="photo-detail" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB"><feConvolveMatrix order="3" kernelMatrix="0 -0.28 0 -0.28 2.12 -0.28 0 -0.28 0" divisor="1" edgeMode="duplicate" preserveAlpha="true"/><feComponentTransfer><feFuncR type="linear" slope="1.08" intercept="-0.08"/><feFuncG type="linear" slope="1.08" intercept="-0.08"/><feFuncB type="linear" slope="1.08" intercept="-0.08"/></feComponentTransfer></filter></defs></svg><header class="brand-header"><strong>COLEÇÃO PRATA</strong><span>Projeto independente · catálogo demonstrativo, sem vendas</span></header>
